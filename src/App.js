@@ -1,5 +1,6 @@
 import logo from './img.png';
 import './App.css';
+import { Feed } from './Feed'
 
 import {
     BrowserRouter as Router,
@@ -14,15 +15,13 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route path="/feed">
-                        <p>t</p>
+                        <Feed/>
                     </Route>
 
                     <Route path="/">
                         <div className="homepage-container">
-                            <div>
                                 <img src={logo} className="homepage-logo" alt="logo"/>
-                                <Link to="/feed">START</Link>
-                            </div>
+                                <Link className="feed-link" to="/feed">START</Link>
                         </div>
                     </Route>
                 </Switch>

@@ -3,14 +3,27 @@
 }
 
 .homepage-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 200px;
+  width: 200px;
   margin-bottom: 10px;
 }
 
 .homepage-container {
-  background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 40vw;
+}
+
+.feed-link {
+  margin-top: 2vw;
+  font-size: 3vw;
+  text-decoration: none;
+  color: black;
+}
+
+.feed-link:visited {
+  color: black;
 }
