@@ -46,7 +46,8 @@ export function Feed() {
                             height="100%" width="100%"/>
                 </div>
             </div>
-            <QueueStatus queue={queue} sid={sid}/>
+            <div id="queueStatusContainer"><QueueStatus queue={queue} sid={sid}/></div>
+
             <div className="input-container">
                 <div className="joypad-container">
                     <div className="button">
@@ -79,12 +80,12 @@ export function Feed() {
 
 function QueueStatus (props) {
     if (props.queue[0] === props.sid)  {
-        return (<p>YOUR GO</p>);
+        return (<p id="queueStatus">&#62; YOUR GO</p>);
     } else if (props.queue.indexOf(props.sid) === -1) {
-        return (<p>END OF YOUR GO</p>);
+        return (<p id="queueStatus">&#62; END OF YOUR GO</p>);
     } else if (props.queue.indexOf(props.sid) === 1) {
-        return (<p>PLEASE WAIT, THERE IS {props.queue.indexOf(props.sid)} PERSON AHEAD OF YOU</p>);
+        return (<p id="queueStatus">&#62; PLEASE WAIT, THERE IS {props.queue.indexOf(props.sid)} PERSON AHEAD OF YOU</p>);
     } else {
-        return (<p>PLEASE WAIT, THERE ARE {props.queue.indexOf(props.sid)} PEOPLE AHEAD OF YOU</p>);
+        return (<p id="queueStatus">&#62; PLEASE WAIT, THERE ARE {props.queue.indexOf(props.sid)} PEOPLE AHEAD OF YOU</p>);
     }
 }

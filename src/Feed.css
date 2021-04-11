@@ -105,6 +105,23 @@ body {
     border-radius: 5px;
 }
 
+#queueStatusContainer {
+    position: absolute;
+    text-align: center;
+    color: #00A245;
+    background-color: #2b2a2b;
+    margin-top: 5px;
+    width: 50%;
+    left: 25%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#queueStatus {
+    margin: auto;
+    left: 50%;
+}
+
 #quack {
     width: 40vw;
     margin: auto;
