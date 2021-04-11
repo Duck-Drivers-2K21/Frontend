@@ -1,27 +1,28 @@
 import './Feed.css';
 import {useEffect, useState, useCallback} from "react";
 import head from './res/img/duck_head.png';
-
+import useSound from 'use-sound';
 import socketIOClient from "socket.io-client";
+import quackSound from './res/quack.mp3'
 
 const ENDPOINT = "http://192.168.1.200:5000";
-
 
 export function Feed() {
     const [socket, setSocket] = useState();
     const [sid, setSid] = useState(false)
     const [queue, setQueue] = useState([])
 
+    const [playQuack] = useSound(quackSound);
+
     useEffect(() => {
         const newSocket = socketIOClient(ENDPOINT);
         newSocket.on('connect', () => {
                 setSid(newSocket.id)
-                console.log(newSocket.id)
             }
         )
         newSocket.on('move', (data) => console.log(data))
+        newSocket.on('quack', () => playQuack())
         newSocket.on('queue', (data) => {
-                console.log(data.queue)
                 setQueue(data.queue)
             }
         )
@@ -33,6 +34,10 @@ export function Feed() {
         socket.emit('move', {data: direction})
     }
 
+    const handleQuack = () => {
+        socket.emit('quack', {data: "quack"})
+    }
+
     return (
         <div>
             <div className="twitch-container">
@@ -42,7 +47,7 @@ export function Feed() {
                             allowFullScreen="true" scrolling="no" height="100%" width="100%"/>
                 </div>
                 <div className="chat-container">
-                    <iframe src="https://www.twitch.tv/embed/esl_csgo/chat?parent=localhost" title="chat"
+                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=localhost" title="chat"
                             height="100%" width="100%"/>
                 </div>
             </div>
@@ -70,7 +75,7 @@ export function Feed() {
 
                 </div>
                 <div className="button" id="quack">
-                    <a><span id="quackText">Quack!</span></a>
+                    <a onClick={() => handleQuack()}><span id="quackText">Quack!</span></a>
                 </div>
             </div>
         </div>
