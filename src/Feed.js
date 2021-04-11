@@ -1,39 +1,36 @@
 import './Feed.css';
-import {useEffect, useState} from "react";
+import {useEffect, useState, useCallback} from "react";
 import head from './res/img/duck_head.png';
+
+import socketIOClient from "socket.io-client";
+
+const ENDPOINT = "http://192.168.1.200:5000";
 
 
 export function Feed() {
-
-    const [socket, setSocket] = useState()
+    const [socket, setSocket] = useState();
+    const [sid, setSid] = useState(false)
+    const [queue, setQueue] = useState([])
 
     useEffect(() => {
-        let ws = new WebSocket("ws://localhost:3000/ws")
-
-        ws.onopen = () => {
-            console.log("Socket Connected")
-        };
-
-        ws.onmessage = evt => {
-            const message = JSON.parse(evt.data)
-            console.log(message)
-        };
-
-        ws.onclose = () => {
-            console.log("Socket Disconnected")
-        };
-
-        setSocket(ws);
-
+        const newSocket = socketIOClient(ENDPOINT);
+        newSocket.on('connect', () => {
+                setSid(newSocket.id)
+                console.log(newSocket.id)
+            }
+        )
+        newSocket.on('move', (data) => console.log(data))
+        newSocket.on('queue', (data) => {
+                console.log(data.queue)
+                setQueue(data.queue)
+            }
+        )
+        setSocket(newSocket)
     }, []);
 
-    const sendMessage = (msg) => {
-        try {
-            console.log(msg)
-            socket.send(msg)
-        } catch (error) {
-            console.log(error)
-        }
+
+    const handleMouseAction = (direction) => {
+        socket.emit('move', {data: direction})
     }
 
     return (
@@ -49,32 +46,45 @@ export function Feed() {
                             height="100%" width="100%"/>
                 </div>
             </div>
-
+            <QueueStatus queue={queue} sid={sid}/>
             <div className="input-container">
                 <div className="joypad-container">
                     <div className="button">
-                        <a onClick={() => sendMessage("FORWARD")}>⬆</a>
+                        <a onMouseDown={() => handleMouseAction("F")} onMouseUp={() => handleMouseAction("F_OFF")}>⬆</a>
                     </div>
                     <div>
                         <div className="button">
-                            <a onClick={() => sendMessage("LEFT")}>⬅</a>
+                            <a onMouseDown={() => handleMouseAction("L")}
+                               onMouseUp={() => handleMouseAction("L_OFF")}>⬅</a>
                         </div>
                         <div className="button">
-                            <a onClick={() => sendMessage("BACKWARDS")}>⬇</a>
+                            <a onMouseDown={() => handleMouseAction("B")}
+                               onMouseUp={() => handleMouseAction("B_OFF")}>⬇</a>
                         </div>
                         <div className="button">
-                            <a onClick={() => sendMessage("RIGHT")}>⮕</a>
+                            <a onMouseDown={() => handleMouseAction("R")}
+                               onMouseUp={() => handleMouseAction("R_OFF")}>⮕️️</a>
                         </div>
                     </div>
 
                 </div>
                 <div className="button" id="quack">
-                    <a onClick={() => sendMessage("QUACK")}><span id="quackText">Quack!</span></a>
+                    <a><span id="quackText">Quack!</span></a>
                 </div>
             </div>
-            <a href="/"><img src={head} id="head"/></a>
-
         </div>
     );
 
+}
+
+function QueueStatus (props) {
+    if (props.queue[0] === props.sid)  {
+        return (<p>YOUR GO</p>);
+    } else if (props.queue.indexOf(props.sid) === -1) {
+        return (<p>END OF YOUR GO</p>);
+    } else if (props.queue.indexOf(props.sid) === 1) {
+        return (<p>PLEASE WAIT, THERE IS {props.queue.indexOf(props.sid)} PERSON AHEAD OF YOU</p>);
+    } else {
+        return (<p>PLEASE WAIT, THERE ARE {props.queue.indexOf(props.sid)} PEOPLE AHEAD OF YOU</p>);
+    }
 }
