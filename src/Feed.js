@@ -5,7 +5,7 @@ import useSound from 'use-sound';
 import socketIOClient from "socket.io-client";
 import quackSound from './res/quack.mp3'
 
-const ENDPOINT = "http://77.102.111.21:5000";
+const ENDPOINT = "https://duckdriver.co.uk:5000";
 
 export function Feed() {
     const [socket, setSocket] = useState();
@@ -15,13 +15,16 @@ export function Feed() {
     const [playQuack] = useSound(quackSound);
 
     useEffect(() => {
+        playQuack()
         const newSocket = socketIOClient(ENDPOINT);
         newSocket.on('connect', () => {
                 setSid(newSocket.id)
             }
         )
         newSocket.on('move', (data) => console.log(data))
-        newSocket.on('quack', () => playQuack())
+        newSocket.on('quack', () =>  { playQuack()
+            console.log("quack")
+        })
         newSocket.on('queue', (data) => {
                 setQueue(data.queue)
             }
@@ -42,12 +45,12 @@ export function Feed() {
         <div>
             <div className="twitch-container">
                 <div className="stream-container">
-                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=77.102.111.21"
+                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=duckdriver.co.uk"
                             title="Stream" frameBorder="0"
                             allowFullScreen="true" scrolling="no" height="100%" width="100%"/>
                 </div>
                 <div className="chat-container">
-                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=77.102.111.21" title="chat"
+                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=duckdriver.co.uk" title="chat"
                             height="100%" width="100%"/>
                 </div>
             </div>
