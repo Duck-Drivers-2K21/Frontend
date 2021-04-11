@@ -1,6 +1,7 @@
 import logo from './res/img/duck_driver.png';
 import './App.css';
 import {Feed} from './Feed'
+import {About} from './about'
 
 import {
     BrowserRouter as Router,
@@ -18,20 +19,22 @@ function App() {
                     <Route path="/feed">
                         <Feed/>
                     </Route>
-
+                    <Route path="/about">
+                        <About/>
+                    </Route>
                     <Route path="/">
                         <div className="homepage-container">
                             <img src={logo} className="homepage-logo" alt="logo"/>
-                            <p>Waddle about campus, virtually!</p>
+                            <p>Waddle about campus</p>
                             <div className="button">
                                 <a href="/feed">Let's get rollin'</a>
                             </div>
-
                         </div>
                     </Route>
                 </Switch>
             </div>
-            <div id="footer">&#60;<a href={githubLink}>about</a>; made with ❤ for <b>Bath Hack 2021</b>; source on <a href={githubLink}>GitHub</a>;&#62;</div>
+            <div id="footer">&#60;<a href="/about">about</a>; made with ❤ for <b>Bath Hack 2021</b>; source on <a
+                href={githubLink}>GitHub</a>;&#62;</div>
         </Router>
     );
 }

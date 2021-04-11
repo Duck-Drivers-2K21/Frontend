@@ -4,6 +4,7 @@ import head from './res/img/duck_head.png';
 
 
 export function Feed() {
+
     const [socket, setSocket] = useState()
 
     useEffect(() => {
@@ -16,14 +17,15 @@ export function Feed() {
         ws.onmessage = evt => {
             const message = JSON.parse(evt.data)
             console.log(message)
-        }
+        };
 
         ws.onclose = () => {
             console.log("Socket Disconnected")
-        }
+        };
 
-        setSocket(ws)
-    }, [])
+        setSocket(ws);
+
+    }, []);
 
     const sendMessage = (msg) => {
         try {
@@ -61,7 +63,7 @@ export function Feed() {
                             <a onClick={() => sendMessage("BACKWARDS")}>⬇</a>
                         </div>
                         <div className="button">
-                            <a onClick={() => sendMessage("RIGHT")}>⮕️️</a>
+                            <a onClick={() => sendMessage("RIGHT")}>⮕</a>
                         </div>
                     </div>
 
@@ -70,6 +72,8 @@ export function Feed() {
                     <a onClick={() => sendMessage("QUACK")}><span id="quackText">Quack!</span></a>
                 </div>
             </div>
+            <a href="/"><img src={head} id="head"/></a>
+
         </div>
     );
 

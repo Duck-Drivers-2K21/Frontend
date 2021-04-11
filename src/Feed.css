@@ -49,7 +49,7 @@ div.button::selection {
 }
 
 body {
-    background-color: #2bd9fe;
+    background-color: #009D84;
     font-family: monospace;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .button a {
-    color: white;
+    color: #FFF7EE;
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 36px;
@@ -71,8 +71,6 @@ body {
     position: relative;
     padding: 10px 20px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    text-shadow: 0px 1px 0px #000;
-    filter: dropshadow(color=#000, offx=0px, offy=1px);
 
     -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
     -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
@@ -117,8 +115,21 @@ body {
 }
 
 #head {
-    margin-top: 10px;
-    max-height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 1vw;
+    max-width: 10vw;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    cursor:pointer;
+    z-index: 99;
+
 }
 
 

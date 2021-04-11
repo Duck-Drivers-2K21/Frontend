@@ -1,0 +1,43 @@
+.homepage-logo {
+    max-width: 40vw;
+}
+
+#info {
+    max-width: 70vw;
+    margin: auto;
+}
+
+img#campus {
+    max-width: 50vw;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+
+
+div#footer a:visited {
+    color: inherit;
+}
+
+div#back {
+    left: 2.5vw;
+    top: 2.5vw;
+    position: fixed;
+    z-index: 99;
+}
+
+img.headshot {
+    border-radius: 50%;
+    max-width: 10vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    transition-duration: 0.5s;
+}
+
+img.headshot:hover {
+    border-radius: 30%;
+
+
+}
