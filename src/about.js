@@ -36,6 +36,7 @@ export function About() {
                 <b>Duck Driver</b> is a remote-controlled duck that anybody can control from their browser. Users can
                 join a queue and enjoy the views of the <b>University of Bath Campus</b> while adhering to government
                 restrictions regarding COVID-19.
+                todo: add image of the W A G O N
             </p>
             <h3>Demo</h3>
             <p>
@@ -45,13 +46,15 @@ export function About() {
             <h2>How does it work?</h2>
             <p>
                 The hardware is a <b>Revell Control</b> RC truck with a raspberry pi connected to the controller, running
-                Python code to control the steering. This raspberry pi is controlled remotely by a Python server,
-                which also serves this lovely React frontend and also allows for users to take control.
+                Python code to control the steering. This raspberry pi is then controlled remotely by a Python server,
+                which also serves this lovely React frontend and also allows for users to take control of the duck, and
+                become <i>duck drivers</i>.
                 <br/><br/>
                 Resources for doing this were notoriously scarce, especially as we didn't have a motor driver (and couldn't
                 find a datasheet for the chip found inside the truck). After frying a raspberry pi and breaking another car
-                down to bits, we ended up simulating button presses with the GPIO pins on the raspberry pi. We could have
-                avoided a lot of headaches, but none of us knew what we were doing and we didn't have the ideal tools.
+                down to bits, we ended up simulating button presses on the controller with the GPIO pins on the raspberry
+                pi. With better planning, we could have avoided a lot of headaches, but let's be honest, none of us knew
+                what we were doing and we didn't have the ideal tools.
                 <br/><br/>
                 To be more specific, the hardware at our disposal consisted of a couple of RC trucks (only one of which
                 survived), two raspberry pi boards (one got accidentally fried), Joe's webcam, a spatula to mount the
@@ -61,7 +64,7 @@ export function About() {
 
             <h2>Why did you make it?</h2>
             <p>
-                This was our contribution to the 2021 Bath Hack Hackathon. We wanted to create a tribute to celebrate
+                This was our contribution to the <i>2021 Bath Hack</i> Hackathon. We wanted to create a tribute to celebrate
                 our campus, which we've missed over during the national lockdowns, and couldn't think of a better way of
                 exploring it than from the perspective of the iconic Bath ducks.
                 <img src={campus} id="campus"/><br/>
@@ -74,7 +77,6 @@ export function About() {
 
             <h2>Who are you?</h2>
             <div id="headshots">
-
                 <a href={gh_alex}><img src={img_alex} class="headshot"/></a>
                 <a href={gh_joe}><img src={img_joe} class="headshot"/></a>
                 <a href={gh_luke}><img src={img_luke} class="headshot"/></a>
