@@ -34,7 +34,8 @@ export function About() {
             <h2>What is this?</h2>
             <p>
                 <b>Duck Driver</b> is a remote-controlled duck that anybody can control from their browser. Users can
-                join a queue and enjoy the views of the <b>University of Bath Campus</b> from their homes.
+                join a queue and enjoy the views of the <b>University of Bath Campus</b> while adhering to government
+                restrictions regarding COVID-19.
             </p>
             <h3>Demo</h3>
             <p>
@@ -44,23 +45,31 @@ export function About() {
             <h2>How does it work?</h2>
             <p>
                 The hardware is a <b>Revell Control</b> RC truck with a raspberry pi connected to the controller, running
-                Python code to control the steering. This raspberry pi is controlled remotely by a (todo: language?) server,
+                Python code to control the steering. This raspberry pi is controlled remotely by a Python server,
                 which also serves this lovely React frontend and also allows for users to take control.
                 <br/><br/>
                 Resources for doing this were notoriously scarce, especially as we didn't have a motor driver (and couldn't
                 find a datasheet for the chip found inside the truck). After frying a raspberry pi and breaking another car
                 down to bits, we ended up simulating button presses with the GPIO pins on the raspberry pi. We could have
                 avoided a lot of headaches, but none of us knew what we were doing and we didn't have the ideal tools.
-
+                <br/><br/>
+                To be more specific, the hardware at our disposal consisted of a couple of RC trucks (only one of which
+                survived), two raspberry pi boards (one got accidentally fried), Joe's webcam, a spatula to mount the
+                webcam on and a duck plushie.
 
             </p>
 
             <h2>Why did you make it?</h2>
             <p>
                 This was our contribution to the 2021 Bath Hack Hackathon. We wanted to create a tribute to celebrate
-                our the campus we've missed over during the national lockdowns, and couldn't think of a better way of
+                our campus, which we've missed over during the national lockdowns, and couldn't think of a better way of
                 exploring it than from the perspective of the iconic Bath ducks.
-                <img src={campus} id="campus"/>
+                <img src={campus} id="campus"/><br/>
+                We believe that students currently staying abroad, attending university remotely, would appreciate the
+                opportunity to <i>waddle</i> down the parade, enjoy a view of the lake, and even interact with the other
+                ducks. Additionally, our project could be used in virtual open days, giving applicants a chance to
+                wander around campus on their own, so they can get a better understanding of what it's like to study at
+                the University of Bath.
             </p>
 
             <h2>Who are you?</h2>
