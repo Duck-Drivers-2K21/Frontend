@@ -17,7 +17,6 @@
 }
 
 .input-container {
-    margin-top: 1vw;
     margin-left: 1vw;
     display: flex;
     align-items: flex-start;
@@ -30,10 +29,96 @@
     align-items: center;
 }
 
-.joypad-button {
-    background-color: #C3BEF7;
-    margin-right: 1vw;
-    margin-top: 1vw;
-    width: 8vw;
-    height: 3vw;
+
+div.button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    cursor:pointer;
+    z-index: 99;
 }
+
+div.button::selection {
+    cursor:pointer;
+
+}
+
+body {
+    background-color: #2bd9fe;
+    font-family: monospace;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.button a {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FFA12B;
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+
+    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.button a:active {
+    top: 10px;
+    background-color: #F78900;
+
+    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3 pxpx 0 #915100;
+    box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.button:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    bottom: -15px;
+    left: -4px;
+    z-index: -1;
+    background-color: #2B1800;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#quack {
+    width: 40vw;
+    margin: auto;
+}
+
+#quackText {
+    margin-bottom: 40px;
+}
+
+#head {
+    margin-top: 10px;
+    max-height: 40px;
+}
+
+
