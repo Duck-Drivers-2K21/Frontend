@@ -70,7 +70,7 @@ export function About() {
                 This was our contribution to the <i>2021 Bath Hack</i> Hackathon. We wanted to create a tribute to celebrate
                 our campus, which we've missed over during the national lockdowns, and couldn't think of a better way of
                 exploring it than from the perspective of the iconic Bath ducks.
-                <img src={campus} id="campus"/><br/>
+                <img src={campus} id="campus" alt={"Bath campus"}/><br/>
                 We believe that students currently staying abroad, attending university remotely, would appreciate the
                 opportunity to <i>waddle</i> down the parade, enjoy a view of the lake, and even interact with the other
                 ducks. Additionally, our project could be used in virtual open days, giving applicants a chance to
@@ -80,10 +80,10 @@ export function About() {
 
             <h2>Who are you?</h2>
             <div id="headshots">
-                <a href={gh_alex}><img src={img_alex} class="headshot"/></a>
-                <a href={gh_joe}><img src={img_joe} class="headshot"/></a>
-                <a href={gh_luke}><img src={img_luke} class="headshot"/></a>
-                <a href={gh_sergios}><img src={img_sergios} class="headshot"/></a>
+                <a href={gh_alex}><img src={img_alex}  alt={"Team member Alex"} class="headshot"/></a>
+                <a href={gh_joe}><img src={img_joe} alt={"Team member Joe"} class="headshot"/></a>
+                <a href={gh_luke}><img src={img_luke} alt={"Team member Luke"} class="headshot"/></a>
+                <a href={gh_sergios}><img src={img_sergios} alt={"Team member Sergios"} class="headshot"/></a>
             </div>
             <p>
                 We're Alex, Joe, Luke and Sergios. We're in our second-year of studying Computer Science at the
