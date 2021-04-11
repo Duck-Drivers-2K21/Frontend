@@ -39,7 +39,10 @@ export function About() {
             </p>
             <h3>Demo</h3>
             <p>
-                todo: embed youtube video
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/KTW3xjT6-zQ"
+    title="YouTube video player" frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen/>
             </p>
 
             <h2>How does it work?</h2>
