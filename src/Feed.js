@@ -45,12 +45,12 @@ export function Feed() {
         <div>
             <div className="twitch-container">
                 <div className="stream-container">
-                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=duckdriver.co.uk"
+                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=bath-duck.ew.r.appspot.com"
                             title="Stream" frameBorder="0"
                             allowFullScreen="true" scrolling="no" height="100%" width="100%"/>
                 </div>
                 <div className="chat-container">
-                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=duckdriver.co.uk" title="chat"
+                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=bath-duck.ew.r.appspot.com" title="chat"
                             height="100%" width="100%"/>
                 </div>
             </div>
