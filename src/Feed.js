@@ -5,7 +5,7 @@ import useSound from 'use-sound';
 import socketIOClient from "socket.io-client";
 import quackSound from './res/quack.mp3'
 
-const ENDPOINT = "http://192.168.1.200:5000";
+const ENDPOINT = "http://77.102.111.21:5000";
 
 export function Feed() {
     const [socket, setSocket] = useState();
@@ -42,12 +42,12 @@ export function Feed() {
         <div>
             <div className="twitch-container">
                 <div className="stream-container">
-                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=localhost"
+                    <iframe className="stream" src="https://player.twitch.tv/?channel=duckdriverbath&parent=bath-duck.ew.r.appspot.com"
                             title="Stream" frameBorder="0"
                             allowFullScreen="true" scrolling="no" height="100%" width="100%"/>
                 </div>
                 <div className="chat-container">
-                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=localhost" title="chat"
+                    <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=bath-duck.ew.r.appspot.com" title="chat"
                             height="100%" width="100%"/>
                 </div>
             </div>
