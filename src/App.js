@@ -7,12 +7,13 @@ import {
     HashRouter as Router,
     Switch,
     Route,
+    Link,
 } from "react-router-dom";
 
 function App() {
     let githubLink = "https://github.com/Duck-Drivers-2k21";
     return (
-        <Router>
+        <Router basename="/">
             <div className="App">
                 <Switch>
                     <Route path="/feed">
@@ -21,18 +22,18 @@ function App() {
                     <Route path="/about">
                         <About/>
                     </Route>
-                    <Route path="/">
+                    <Route exact path="/">
                         <div className="homepage-container">
                             <img src={logo} className="homepage-logo" alt="logo"/>
                             <p>Waddle about campus</p>
                             <div className="button">
-                                <a href="/feed">Let's get rollin'</a>
+                                <Link to="/feed">Let's get rollin'</Link>
                             </div>
                         </div>
                     </Route>
                 </Switch>
             </div>
-            <div id="footer">&#60;<a href="/about">about</a>; made with ❤ for <b>Bath Hack 2021</b>; source on <a
+            <div id="footer">&#60;<Link to="/about">about</Link>; made with ❤ for <b>Bath Hack 2021</b>; source on <a
                 href={githubLink}>GitHub</a>;&#62;</div>
         </Router>
     );
