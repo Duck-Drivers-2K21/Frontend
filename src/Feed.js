@@ -20,14 +20,10 @@ export function Feed() {
             }
         )
         newSocket.on('move', (data) => console.log(data))
-        newSocket.on('quack', () => {
-            playQuack()
-            console.log("quack")
-        })
+        newSocket.on('quack', playQuack)
         newSocket.on('queue', (data) => {
-                setQueue(data.queue)
-            }
-        )
+            setQueue(data.queue)
+        })
         setSocket(newSocket)
     }, [playQuack]);
 
@@ -46,17 +42,15 @@ export function Feed() {
                 <div className="stream-container">
                     <iframe className="stream"
                             src="https://player.twitch.tv/?channel=duckdriverbath&parent=duckdriver.co.uk"
-                            title="Stream" frameBorder="0"
-                            allowFullScreen="true" scrolling="no" height="100%" width="100%"/>
+                            title="Stream" frameBorder="0" scrolling="no" height="100%" width="100%"/>
                 </div>
                 <div className="chat-container">
                     <iframe src="https://www.twitch.tv/embed/duckdriverbath/chat?parent=duckdriver.co.uk" title="chat"
                             height="100%" width="100%"/>
                 </div>
             </div>
-            <div id="queueStatusContainer"><QueueStatus queue={queue} sid={sid}/></div>
-
             <div className="input-container">
+                <div id="queueStatusContainer"><QueueStatus queue={queue} sid={sid}/></div>
                 <div className="joypad-container">
                     <div className="button">
                         <a onMouseDown={() => handleMouseAction("F")} onMouseUp={() => handleMouseAction("F_OFF")}>⬆</a>

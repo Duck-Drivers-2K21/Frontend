@@ -7,16 +7,17 @@
 .stream-container{
     margin-left: 1vw;
     width: 72vw;
-    height: 40.5vw;
+    height: 75vh;
 }
 
 .chat-container{
     margin-left: 1vw;
-    height: 40.1vw;
+    height: 74.5vh;
     width: 24vw;
 }
 
 .input-container {
+    margin-top: 2vh;
     margin-left: 1vw;
     display: flex;
     align-items: flex-start;
@@ -110,7 +111,6 @@ body {
     text-align: center;
     color: #00A245;
     background-color: #2b2a2b;
-    margin-top: 5px;
     width: 50%;
     left: 25%;
     padding: 5px;
