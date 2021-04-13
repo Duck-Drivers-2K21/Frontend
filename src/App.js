@@ -4,7 +4,7 @@ import {Feed} from './Feed'
 import {About} from './about'
 
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
 } from "react-router-dom";
