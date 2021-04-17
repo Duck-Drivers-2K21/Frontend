@@ -36,7 +36,6 @@ export function About() {
                 <b>Duck Driver</b> is a remote-controlled duck that anybody can control from their browser. Users can
                 join a queue and enjoy the views of the <b>University of Bath Campus</b> while adhering to government
                 restrictions regarding COVID-19.
-                todo: add image of the W A G O N
             </p>
             <h3>Demo</h3>
             <p>
